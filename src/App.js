@@ -59,7 +59,6 @@ export class App extends React.Component {
               styles: mapStyles
             }}
             yesIWantToUseGoogleMapApiInternals
-            disableDefaultUI
             onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps, vehicles)}
             >
             {vehicles.map(vehicle => (
