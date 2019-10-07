@@ -6,13 +6,12 @@ const Wrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border: 1px solid #fff;
   border-radius: 100%;
   user-select: none;
   transform: translate(-50%, -50%);
-  background-color: #000;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -27,12 +26,13 @@ const Wrapper = styled.div`
 const Marker = props => (
   <Wrapper
     alt={props.text}
-    key={props.VehicleID}
-    className="vehicle"
+    key={props.vehicleID}
+    className={props.type + " " + props.type + props.data.routeNumber + " vehicle"}
     {...props.onClick ? { onClick: props.onClick } : {}}
-  > 
+  >
+    <div className="routeNumber">{props.data.routeNumber}</div>
     <div className="vehicle-infobox">
-      <div>{props.data.TripHeadsign}</div>
+      <div>{props.data.signMessageLong}</div>
     </div>
   </Wrapper>
 );
