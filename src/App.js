@@ -1,15 +1,15 @@
 import React from "react";
 import GoogleMap from './components/GoogleMap';
-
 import Marker from './components/Marker';
 import Stats from './components/Stats';
 import { apiIsLoaded } from './components/Functions';
-import "./App.css";
-import { mapStyles } from './mapstyles.js';
+import { mapStyles } from './mapstyles';
 // import { mapStyles } from './mapstyles-bw.js';
+import "./App.css";
 
-const API_KEY = "CC57D2038B76DBBD253D6A587";
-const API_URL = "https://developer.trimet.org/ws/v2/vehicles/appID/"+API_KEY;
+import { sampledata } from './sampledata';
+
+const API_URL = "https://developer.trimet.org/ws/v2/vehicles/appID/"+process.env.REACT_APP_TRIMET_API_KEY;
 const defaultCenter = [45.519526,-122.677040];
 
 
@@ -22,26 +22,34 @@ export class App extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    let totalRequests = 0;
-    try {
-      setInterval(async () => {
-        if (totalRequests < 10) {
-          const res = await fetch(API_URL);
-          const json = await res.json();
-          // const filteredVehicles = json.resultSet.vehicle.filter(vehicle => vehicle.type === 'rail');
-          const vehicles = json.resultSet.vehicle;
+  componentDidMount() {
+    // let totalRequests = 0;
+    // try {
+    //   setInterval(async () => {
+    //     if (totalRequests < 10) {
+    //       const res = await fetch(API_URL);
+    //       const json = await res.json();
+    //       console.log(json);
+    //       // const filteredVehicles = json.resultSet.vehicle.filter(vehicle => vehicle.type === 'rail');
+    //       const vehicles = json.resultSet.vehicle;
 
-          this.setState({
-            isLoaded: true,
-            vehicles: vehicles
-          })
-          totalRequests++;
-        }
-      }, 10000);
-    } catch(e) {
-      console.error(e);
-    }
+    //       this.setState({
+    //         isLoaded: true,
+    //         vehicles: vehicles
+    //       })
+    //       totalRequests++;
+    //     }
+    //   }, 10000);
+    // } catch(e) {
+    //   console.error(e);
+    // }
+
+    this.setState({
+      isLoaded: true,
+      vehicles: sampledata.resultSet.vehicle
+    })
+
+    console.log(process.env)
   }
 
   render() {
