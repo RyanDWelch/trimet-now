@@ -48,8 +48,6 @@ export class App extends React.Component {
       isLoaded: true,
       vehicles: sampledata.resultSet.vehicle
     })
-
-    console.log(process.env)
   }
 
   render() {
