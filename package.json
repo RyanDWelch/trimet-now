@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "google-map-react": "^1.1.5",
-    "igniteui-react-charts": "^16.6.12",
-    "igniteui-react-core": "^16.6.12",
+    "google-map-react": "^1.1.7",
+    "igniteui-react-charts": "^16.12.3",
+    "igniteui-react-core": "^16.12.3",
     "prop-types": "^15.7.2",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-google-maps": "^9.4.5",
     "react-scripts": "3.2.0",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
